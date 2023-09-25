@@ -1,5 +1,6 @@
 import { DataTypes } from "sequelize";
 import { Column, Table, Model, HasMany } from "sequelize-typescript";
+import { Order } from "src/orders/orders.model";
 import { Product } from "src/products/produts.model";
 
 @Table({ tableName: "users" })
@@ -28,5 +29,8 @@ export class User extends Model<User> {
   role: string;
 
   @HasMany(() => Product)
-  produtc: Product[];
+  product: Product[];
+
+  @HasMany(() => Order)
+  orders: Order[];
 }
